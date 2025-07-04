@@ -35,12 +35,23 @@ The account-level CAs can be:
 
 ## Use cases
 
-(Intro blurb and new link out to LP)
+As explained in the [mTLS learning path](/learning-paths/mtls/concepts/), there are different use cases and implementation options for mTLS. Consider the following links for specific guidance.
 
 - [Application security](/learning-paths/mtls/mtls-app-security/)
-- [mTLS Access integration](/cloudflare-one/identity/devices/access-integrations/mutual-tls-authentication/)
+- [mTLS for Zero Trust](/cloudflare-one/identity/devices/access-integrations/mutual-tls-authentication/) (Cloudflare Access integration)
 - [mTLS with API Shield](/api-shield/security/mtls/configure/)
 - [mTLS Workers binding](/workers/runtime-apis/bindings/mtls/)
+
+### mTLS and Workers
+
+Use the [mTLS Workers binding](/workers/runtime-apis/bindings/mtls/) when you need your worker to present a client certificate to an external service. To authenticate requests from a client to your worker instead, refer to [SSL/TLS > Client certificates](https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/client-certificates/) and the regular [mTLS for application security](/learning-paths/mtls/mtls-app-security/) implementation.
+
+```mermaid
+flowchart LR
+        accTitle: mTLS from client to worker versus mTLS from worker to external service
+        accDescr: Diagram showing two different implementations that can be considered for mTLS with Cloudflare Workers.
+        A[Client] <--App security mTLS--> B((Cloudflare))<--mTLS worker binding--> C[(External service)]
+```
 
 ---
 
