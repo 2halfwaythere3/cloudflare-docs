@@ -6,17 +6,17 @@
 		"astro": "npx astro",
 		"build": "npx astro build",
 		"typegen:worker": "npx wrangler types ./worker/worker-configuration.d.ts",
-		"check": "npm run check:astro && npm run check:worker",
+		"check": "node --run check:astro && node --run check:worker",
 		"check:astro": "npx astro check",
 		"check:worker": "npx tsc --noEmit -p ./worker/tsconfig.json",
 		"dev": "npx astro dev",
-		"format": "npm run format:core:fix && npm run format:data",
+		"format": "node --run format:core:fix && node --run format:data",
 		"format:core": "npx prettier \"**/*.{js,jsx,ts,tsx,mjs,css}\"",
-		"format:core:check": "npm run format:core -- --check",
-		"format:core:fix": "npm run format:core -- --write",
+		"format:core:check": "node --run format:core -- --check",
+		"format:core:fix": "node --run format:core -- --write",
 		"format:content": "npx prettier --write \"**/*.{md,mdx,astro}\"",
 		"format:data": "npx prettier --write \"**/*.{json,yaml,yml}\"",
-		"postinstall": "npx patch-package && npm run sync",
+		"postinstall": "npx patch-package && node --run sync",
 		"preview": "npx astro preview",
 		"script:optimize-svgs": "npx tsx scripts/optimize-svgs.ts",
 		"start": "npx astro dev",
@@ -138,6 +138,6 @@
 		"node": ">=22"
 	},
 	"volta": {
-		"node": "22.9.0"
+		"node": "22.17.0"
 	}
 }
