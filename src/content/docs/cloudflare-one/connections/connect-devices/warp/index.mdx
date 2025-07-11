@@ -12,7 +12,9 @@ The Cloudflare WARP client allows you to protect corporate devices by securely a
 
 WARP is a lightweight device client, which builds proxy tunnels using either Wireguard or MASQUE, and builds a DNS proxy using DNS-over-HTTPS. WARP supports all major operating systems, all common forms of endpoint management tooling, and has a robust series of management parameters and profiles to accurately scope the needs of a diverse user base.
 
-WARP has flexible [operating modes](/cloudflare-one/connections/connect-devices/warp/configure-warp/warp-modes/) and can control device traffic as a proxy, control device DNS traffic as a DNS proxy, or both. It is the most common method to send traffic from user devices to be filtered and decrypted by Cloudflare Gateway.
+The Cloudflare WARP client comprises a user-friendly Graphical User Interface (GUI) and a background daemon (or service). The daemon is responsible for establishing the secure tunnel and managing all interactions between your device and Cloudflare's network, ensuring traffic protection and policy enforcement. The GUI serves as a control panel, allowing users to manage WARP's [status](/cloudflare-one/connections/connect-devices/warp/troubleshooting/connectivity-status/) and [settings](/cloudflare-one/connections/connect-devices/warp/configure-warp/warp-settings/).
+
+WARP has flexible [operating modes](/cloudflare-one/connections/connect-devices/warp/configure-warp/warp-modes/) and can control device traffic as a proxy, control device DNS traffic as a DNS proxy, or both. WARP is the most common method to send traffic from user devices to be filtered and decrypted by Cloudflare Gateway.
 
 Downloading and deploying the WARP client to your devices enhances the protection Cloudflare Zero Trust can provide to your users and data, wherever they are.
 
