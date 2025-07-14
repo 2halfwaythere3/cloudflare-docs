@@ -39,6 +39,10 @@ To check if your device is using the correct dedicated egress IP:
 
 When testing against another origin, you may see either an IPv4 or IPv6 address. Gateway has no control over whether connections are made over IPv4 or IPv6. Some origins are only available over IPv4, while others are only available over IPv6. When both protocols are supported, the decision is made by the operating system and browser on the client device. For example, Windows will by default [favor IPv6](https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows) over IPv4.
 
+## Bring your own IP address (BYOIP)
+
+Enterprise users can provide an IP address for a private DNS resolver to use as a dedicated egress IP. Gateway supports bringing your own IPv4 and IPv6 addresses.
+
 ## Limitations
 
 ### Concurrent connections
