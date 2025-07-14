@@ -15,6 +15,8 @@ The WARP client connects to Cloudflare via a standard HTTPS connection outside t
 
 <Render file="warp/client-orchestration-ips" />
 
+Although `zero-trust-client.cloudflareclient.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
+
 ## DoH IP
 
 :::note
@@ -25,6 +27,8 @@ In [Gateway with DoH](/cloudflare-one/connections/connect-devices/warp/configure
 
 - IPv4 DoH Addresses: `162.159.36.1` and `162.159.46.1`
 - IPv6 DoH Addresses: `2606:4700:4700::1111` and `2606:4700:4700::1001`
+
+Although `<ACCOUNT_ID>.cloudflare-gateway.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
 
 ### Android devices
 
@@ -89,6 +93,8 @@ The client connects to the following destinations to verify general Internet con
 - `162.159.197.3`
 - `2606:4700:102::3`
 
+Although `engage.cloudflareclient.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
+
 ### Inside tunnel
 
 The WARP client connects to the following IPs to verify connectivity inside of the WARP tunnel:
@@ -98,7 +104,9 @@ The WARP client connects to the following IPs to verify connectivity inside of t
 
 Because this check happens inside of the tunnel, you do not need to add these IPs to your firewall allowlist. However, since the requests go through Gateway, ensure that they are not blocked by a Gateway HTTP or Network policy.
 
-Thought it may be visible in `warp-diag` and other logs, `connectivity.cloudflareclient.com` is used internally by WARP and should not be used in firewall policies.
+Although `connectivity.cloudflareclient.com` may appear in `warp-diag` and other logs, it is used internally by WARP and should not be used in firewall policies.
+
+If your firewall allows traffic only by domain, you may need to explicitly allow `connectivity.cloudflareclient.com`. Be aware that this domain can resolve to different IP addresses. However, this domain is hardcoded to the IPs listed above. To avoid connectivity issues, ensure that `162.159.197.4` and `2606:4700:102::4` are permitted through your firewall.
 
 ## NEL reporting (optional)
 
