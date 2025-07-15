@@ -15,7 +15,7 @@ The WARP client connects to Cloudflare via a standard HTTPS connection outside t
 
 <Render file="warp/client-orchestration-ips" />
 
-Although `zero-trust-client.cloudflareclient.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
+Although `zero-trust-client.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
 
 ## DoH IP
 
@@ -28,7 +28,7 @@ In [Gateway with DoH](/cloudflare-one/connections/connect-devices/warp/configure
 - IPv4 DoH Addresses: `162.159.36.1` and `162.159.46.1`
 - IPv6 DoH Addresses: `2606:4700:4700::1111` and `2606:4700:4700::1001`
 
-Although `<ACCOUNT_ID>.cloudflare-gateway.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
+Although `<ACCOUNT_ID>.cloudflare-gateway.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
 
 ### Android devices
 
@@ -93,7 +93,7 @@ The client connects to the following destinations to verify general Internet con
 - `162.159.197.3`
 - `2606:4700:102::3`
 
-Although `engage.cloudflareclient.com` may resolve to different IP addresses, this domain is hardcoded to the IPs listed above.
+Although `engage.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
 
 ### Inside tunnel
 
