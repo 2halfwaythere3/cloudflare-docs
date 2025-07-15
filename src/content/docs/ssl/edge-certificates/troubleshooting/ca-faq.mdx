@@ -64,3 +64,12 @@ Universal certificates on free zones only receive an ECDSA certificate. Paid zon
 When [ordering an advanced certificate](/ssl/edge-certificates/advanced-certificate-manager/manage-certificates/), you can choose the CA through the UI or API.
 
 [Total TLS](/ssl/edge-certificates/additional-options/total-tls/) allows you to get full certificate coverage. When enabling Total TLS, you can choose the CA that will be used for all Total TLS certificates.
+
+## Renewal
+
+### Error when clicking `Approve Certificate` on a *Certificate Approval* renewal email
+
+The full error message is:
+`An error occured while attempting to validate your domain. Please try aagin later of contact support for assistance.`
+
+Please check the status of the certificate in the [Cloudflare Dashboard](https://dash.cloudflare.com?to=/:account/:zone/ssl-tls): if the status is `Active`, you can disregard this email and the error message.
