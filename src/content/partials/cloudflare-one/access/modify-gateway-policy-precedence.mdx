@@ -4,13 +4,26 @@ params:
   - protocol
 ---
 
-By default, Cloudflare will evaluate Access application policies after evaluating all Gateway network policies. To evaluate Access applications before or after specific Gateway policies, create the following [Gateway network policy](/cloudflare-one/policies/gateway/network-policies/):
+By default, Cloudflare will evaluate Access application policies after evaluating all Gateway network policies. To evaluate Access applications before or after specific Gateway policies:
 
-| Selector                     | Operator | Value     | Action |
-| ---------------------------- | -------- | --------- | ------ |
-| {props.selector}             | is       | _Present_ | Allow  |
+<ol>
+<li>
+Create the following [Gateway network policy](/cloudflare-one/policies/gateway/network-policies/):
 
- { props.protocol === "rdp" && (<> Make sure that <strong>Enforce WARP client session duration</strong> is turned off, since RDP targets do not support WARP authentication. </>)} You can move this policy in the Gateway policy builder to change its [order of precedence](/cloudflare-one/policies/gateway/order-of-enforcement/#order-of-precedence).
+	| Selector                     | Operator | Value     | Action |
+	| ---------------------------- | -------- | --------- | ------ |
+	| {props.selector}             | is       | _Present_ | Allow  |
+</li>
+
+{ props.protocol === "rdp" && (<> <li> Ensure that <strong>Enforce WARP client session duration</strong> is turned off, otherwise users will be blocked from accessing RDP targets. </li> </>)}
+
+<li>
+Update the policy's [order of precedence](/cloudflare-one/policies/gateway/order-of-enforcement/#order-of-precedence) using the dashboard or API.
+</li>
+
+</ol>
+This Gateway policy will apply to all Access for Infrastructure targets, including RDP and SSH.
+
 
 :::note
 Users must pass the policies in your Access application before they are granted access. The Gateway Allow policy is strictly for routing and connectivity purposes.
