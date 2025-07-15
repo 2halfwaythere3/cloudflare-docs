@@ -99,7 +99,7 @@ If you want to update an Exact Data Match dataset to remove a column in use as a
 
 You can upload example documents to scan for unstructured data or specific document types common to your organization. DLP will create a unique fingerprint of the document and detect patterns in your organization's traffic based on how similar it is to the original fingerprint.
 
-DLP stores uploaded documents encrypted at rest in a [Cloudflare R2](/r2/) bucket. To upload sensitive data is only stored in memory, use [Exact Data Match](#exact-data-match).
+DLP stores uploaded documents encrypted at rest in a [Cloudflare R2](/r2/) bucket. To upload sensitive data that is only stored in memory, use [Exact Data Match](#exact-data-match).
 
 ### Prepare document entries
 
@@ -112,12 +112,14 @@ To upload a new document entry to DLP:
 1. In [Zero Trust](https://one.dash.cloudflare.com/), go to **DLP** > **Detection entries**.
 2. Go to **Documents**.
 3. Select **Add a document entry**.
-4. Name your document. Optionally, add a description. Select **Next**.
+4. Name your document. Optionally, add a description.
 5. In **Minimum similarity for matches**, enter a value between 0% and 100%.
 6. In **Upload document**, choose and upload your document file.
 7. Select **Save**.
 
-The document will appear in the list with an **Uploading** status. Once the upload is complete, the status will change to **Complete**. To use your uploaded document, add it as an existing entry to a [custom DLP profile](/cloudflare-one/policies/data-loss-prevention/dlp-profiles/#build-a-custom-profile).
+The document will appear in the list with a **Pending** status. Once the upload is complete, the status will change to **Complete**. If you created a document entry with Terraform, the status will be **No file** until you upload a file.
+
+To use your uploaded document fingerprint, add it as an existing entry to a [custom DLP profile](/cloudflare-one/policies/data-loss-prevention/dlp-profiles/#build-a-custom-profile).
 
 ### Manage existing document entries
 
