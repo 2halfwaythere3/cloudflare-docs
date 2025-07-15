@@ -15,7 +15,7 @@ The WARP client connects to Cloudflare via a standard HTTPS connection outside t
 
 <Render file="warp/client-orchestration-ips" />
 
-Although `zero-trust-client.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
+If your firewall allows traffic only by domain, you may need to explicitly allow `zero-trust-client.cloudflareclient.com`. Even though `zero-trust-client.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above. To avoid connectivity issues, ensure that the above IPs are permitted through your firewall.
 
 ## DoH IP
 
@@ -28,7 +28,8 @@ In [Gateway with DoH](/cloudflare-one/connections/connect-devices/warp/configure
 - IPv4 DoH Addresses: `162.159.36.1` and `162.159.46.1`
 - IPv6 DoH Addresses: `2606:4700:4700::1111` and `2606:4700:4700::1001`
 
-Although `<ACCOUNT_ID>.cloudflare-gateway.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
+If your firewall allows traffic only by domain, you may need to explicitly allow `<ACCOUNT_ID>.cloudflare-gateway.com`. Even though `<ACCOUNT_ID>.cloudflare-gateway.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above. To avoid connectivity issues, ensure that the above IPs are permitted through your firewall.
+
 
 ### Android devices
 
@@ -93,7 +94,7 @@ The client connects to the following destinations to verify general Internet con
 - `162.159.197.3`
 - `2606:4700:102::3`
 
-Although `engage.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above.
+If your firewall allows traffic only by domain, you may need to explicitly allow `engage.cloudflareclient.com`. Even though `engage.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above. To avoid connectivity issues, ensure that the above IPs are permitted through your firewall.
 
 ### Inside tunnel
 
@@ -103,8 +104,6 @@ The WARP client connects to the following IPs to verify connectivity inside of t
 - `2606:4700:102::4`
 
 Because this check happens inside of the tunnel, you do not need to add these IPs to your firewall allowlist. However, since the requests go through Gateway, ensure that they are not blocked by a Gateway HTTP or Network policy.
-
-Although `connectivity.cloudflareclient.com` may appear in `warp-diag` and other logs, it is used internally by WARP and should not be used in firewall policies.
 
 If your firewall allows traffic only by domain, you may need to explicitly allow `connectivity.cloudflareclient.com`. Even though `connectivity.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above. To avoid connectivity issues, ensure that the above IPs are permitted through your firewall.
 
