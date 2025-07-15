@@ -106,7 +106,7 @@ Because this check happens inside of the tunnel, you do not need to add these IP
 
 Although `connectivity.cloudflareclient.com` may appear in `warp-diag` and other logs, it is used internally by WARP and should not be used in firewall policies.
 
-If your firewall allows traffic only by domain, you may need to explicitly allow `connectivity.cloudflareclient.com`. Be aware that this domain can resolve to different IP addresses. However, this domain is hardcoded to the IPs listed above. To avoid connectivity issues, ensure that `162.159.197.4` and `2606:4700:102::4` are permitted through your firewall.
+If your firewall allows traffic only by domain, you may need to explicitly allow `connectivity.cloudflareclient.com`. Although `connectivity.cloudflareclient.com` may resolve to different IP addresses, WARP overrides the resolved IPs with the IPs listed above. To avoid connectivity issues, ensure that the above IPs are permitted through your firewall.
 
 ## NEL reporting (optional)
 
